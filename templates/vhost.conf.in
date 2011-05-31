@@ -1,0 +1,24 @@
+<VirtualHost *:80>
+    ServerAdmin ${userdata:serveradmin}
+    ServerName  ${userdata:servername}
+    ServerAlias ${userdata:serveralias}
+    SuexecUserGroup ${userdata:name} ${userdata:name}
+    AddHandler fcgid-script .php
+    DocumentRoot "${buildout:directory}/docs"
+    DirectoryIndex index.htm index.html index.php
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+</Directory>
+<Directory "${buildout:directory}/docs">
+    Options Indexes MultiViews FollowSymLinks +ExecCGI
+    FCGIWrapper ${buildout:directory}/bin/php-fcgi-starter .php
+    Order allow,deny
+    allow from all
+</Directory>
+ErrorLog ${buildout:directory}/logs/error.log
+LogLevel warn
+CustomLog ${buildout:directory}/logs/access.log combined
+ServerSignature On
+</VirtualHost>
+
