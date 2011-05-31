@@ -1,1 +1,1 @@
-See buildout.cfg
+See buildout-common.cfg.
