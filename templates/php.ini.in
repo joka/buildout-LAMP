@@ -252,7 +252,7 @@ safe_mode_protected_env_vars = LD_LIBRARY_PATH
 ; or per-virtualhost web server configuration file. This directive is
 ; *NOT* affected by whether Safe Mode is turned On or Off.
 ;open_basedir =
-open_basedir = ${buildout:directory}/htdocs/:${buildout:directory}/tmp/
+open_basedir = ${buildout:directory}/htdocs/:${buildout:directory}/tmp/:${buildout:directory}/lib/:${buildout:directory}/application/:/usr/bin/
 
 ; This directive allows you to disable certain functions for security reasons.
 ; It receives a comma-delimited list of function names. This directive is
