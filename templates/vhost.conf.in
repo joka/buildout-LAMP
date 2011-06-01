@@ -6,7 +6,7 @@
     SuexecUserGroup ${userdata:name} ${userdata:name}
     AddHandler fcgid-script .php
 
-    DocumentRoot "${buildout:directory}/docs"
+    DocumentRoot "${buildout:directory}/htdocs"
     DirectoryIndex index.htm index.html index.php
 
     <Directory />
@@ -14,7 +14,7 @@
         AllowOverride None
     </Directory>
 
-    <Directory "${buildout:directory}/docs">
+    <Directory "${buildout:directory}/htdocs">
         Options -Indexes MultiViews FollowSymLinks +ExecCGI
         FCGIWrapper ${buildout:directory}/bin/php-fcgi-starter .php
         Order allow,deny
@@ -36,7 +36,7 @@
     SuexecUserGroup ${userdata:name} ${userdata:name}
     AddHandler fcgid-script .php
 
-    DocumentRoot "${buildout:directory}/docs"
+    DocumentRoot "${buildout:directory}/htdocs"
     DirectoryIndex index.htm index.html index.php
 
     <Directory />
@@ -44,7 +44,7 @@
         AllowOverride None
     </Directory>
 
-    <Directory "${buildout:directory}/docs">
+    <Directory "${buildout:directory}/htdocs">
         Options -Indexes MultiViews FollowSymLinks +ExecCGI
         FCGIWrapper ${buildout:directory}/bin/php-fcgi-starter .php
         Order allow,deny
