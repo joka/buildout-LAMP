@@ -252,7 +252,7 @@ safe_mode_protected_env_vars = LD_LIBRARY_PATH
 ; or per-virtualhost web server configuration file. This directive is
 ; *NOT* affected by whether Safe Mode is turned On or Off.
 ;open_basedir =
-open_basedir = ${buildout:directory}/docs/:${buildout:directory}/tmp/
+open_basedir = ${buildout:directory}/htdocs/:${buildout:directory}/tmp/:${buildout:directory}/lib/:${buildout:directory}/application/:/usr/bin/
 
 ; This directive allows you to disable certain functions for security reasons.
 ; It receives a comma-delimited list of function names. This directive is
@@ -540,7 +540,7 @@ doc_root =
 user_dir =
 
 ; Directory in which the loadable extensions (modules) reside.
-extension_dir = "./"
+extension_dir = "${binaries:php_modules}"
 
 ; Whether or not to enable the dl() function.  The dl() function does NOT work
 ; properly in multithreaded servers, such as IIS or Zeus, and is automatically
@@ -845,7 +845,7 @@ mysqli.default_port = ${ports:mysql}
 
 ; Default socket name for local MySQL connects.  If empty, uses the built-in
 ; MySQL defaults.
-mysqli.default_socket =
+mysqli.default_socket = ${mycnf:sock}
 
 ; Default host for mysql_connect() (doesn't apply in safe mode).
 mysqli.default_host =
@@ -1337,3 +1337,9 @@ soap.wsdl_cache_ttl=86400
 ; Local Variables:
 ; tab-width: 4
 ; End:
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; PDO               ;
+;;;;;;;;;;;;;;;;;;;;;;
+
+pdo_mysql.default_socket = ${mycnf:sock}
