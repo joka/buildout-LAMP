@@ -302,10 +302,10 @@ expose_php = On
 ; Resource Limits ;
 ;;;;;;;;;;;;;;;;;;;
 
-max_execution_time = 30     ; Maximum execution time of each script, in seconds
-max_input_time = 60	; Maximum amount of time each script may spend parsing request data
+max_execution_time = 240     ; Maximum execution time of each script, in seconds
+max_input_time = 300	; Maximum amount of time each script may spend parsing request data
 ;max_input_nesting_level = 64 ; Maximum input variable nesting level
-memory_limit = 128M      ; Maximum amount of memory a script may consume (128MB)
+memory_limit = 256M      ; Maximum amount of memory a script may consume (128MB)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -488,7 +488,7 @@ register_argc_argv = Off
 auto_globals_jit = On
 
 ; Maximum size of POST data that PHP will accept.
-post_max_size = 8M
+post_max_size = 64M
 
 ; Magic quotes
 ;
@@ -601,7 +601,7 @@ file_uploads = On
 upload_tmp_dir = ${buildout:directory}/tmp
 
 ; Maximum allowed size for uploaded files.
-upload_max_filesize = 2M
+upload_max_filesize = 16M
 
 
 ;;;;;;;;;;;;;;;;;;
@@ -1343,3 +1343,17 @@ soap.wsdl_cache_ttl=86400
 ;;;;;;;;;;;;;;;;;;;;;;
 
 pdo_mysql.default_socket = ${mycnf:sock}
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; APC               ;
+;;;;;;;;;;;;;;;;;;;;;;
+ 
+apc.stat                        = 0
+apc.include_once_override       = 1
+apc.shm_segments                = 1
+apc.shm_size                    = 32
+apc.ttl                         = 7200
+apc.user_ttl                    = 7200
+apc.num_files_hint              = 1024
+apc.mmap_file_mask              = /dev/shm/apc.XXXXXX
+apc.cache_by_default            = 1
