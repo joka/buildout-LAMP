@@ -48,7 +48,7 @@ query_cache_size        = 16M
 # * Logging and Replication
 #
 general_log_file        = ${buildout:directory}/logs/mysql.log
-log_error               = ${buildout:directory}/logs/error.log
+log_error               = ${buildout:directory}/logs/mysql-error.log
 #log_slow_queries	= ${buildout:directory}/logs/mysql-slow.log
 #long_query_time = 2
 #log-queries-not-using-indexes
