@@ -1,30 +1,13 @@
 <VirtualHost *:80>
     ServerName  ${userdata:servername}
     ServerAlias ${userdata:serveralias}
-    ServerAdmin ${userdata:serveradmin}
 
-    SuexecUserGroup ${userdata:name} ${userdata:name}
-    AddHandler fcgid-script .php
+    <Location />
+        Redirect 301 / https://${userdata:servername}
+    </Location>
 
-    DocumentRoot "${buildout:directory}/docs"
-    DirectoryIndex index.htm index.html index.php
+</VirtualHost>
 
-    <Directory />
-        Options  -Indexes FollowSymLinks
-        AllowOverride None
-    </Directory>
-
-    <Directory "${buildout:directory}/docs">
-        Options -Indexes MultiViews FollowSymLinks +ExecCGI
-        FCGIWrapper ${buildout:directory}/bin/php-fcgi-starter .php
-        Order allow,deny
-        allow from all
-    </Directory>
-    
-    ErrorLog ${buildout:directory}/logs/error.log
-    LogLevel warn
-    CustomLog ${buildout:directory}/logs/access.log combined
-    ServerSignature On
 
 </VirtualHost>
 
@@ -36,15 +19,14 @@
     SuexecUserGroup ${userdata:name} ${userdata:name}
     AddHandler fcgid-script .php
 
-    DocumentRoot "${buildout:directory}/docs"
+    DocumentRoot "${buildout:directory}/htdocs"
     DirectoryIndex index.htm index.html index.php
 
     <Directory />
         Options -Indexes FollowSymLinks
-        AllowOverride None
     </Directory>
 
-    <Directory "${buildout:directory}/docs">
+    <Directory "${buildout:directory}/htdocs">
         Options -Indexes MultiViews FollowSymLinks +ExecCGI
         FCGIWrapper ${buildout:directory}/bin/php-fcgi-starter .php
         Order allow,deny
