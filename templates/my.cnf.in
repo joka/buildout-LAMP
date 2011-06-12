@@ -64,6 +64,7 @@ max_allowed_packet	= 16M
 
 [mysql]
 #no-auto-rehash	# faster start of mysql but no tab completition
+database = ${userdata:mysql_database}
  
 [isamchk]
 #key_buffer		= 16M
