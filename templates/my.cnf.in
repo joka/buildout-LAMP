@@ -7,7 +7,8 @@ socket		= ${mycnf:sock}
 
 [mysqladmin]
 user = root
-password = ${userdata:mysql_root_pwd}
+password = "${userdata:mysql_root_pwd}"
+socket		= ${mycnf:sock}
 
 [mysqld]
 user		= ${mycnf:user}
@@ -65,6 +66,7 @@ max_allowed_packet	= 16M
 [mysql]
 #no-auto-rehash	# faster start of mysql but no tab completition
 database = ${userdata:mysql_database}
+socket		= ${mycnf:sock}
  
 [isamchk]
 #key_buffer		= 16M
