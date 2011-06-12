@@ -18,14 +18,6 @@ datadir		= ${mycnf:datadir}
 tmpdir		= /tmp
 bind-address = 127.0.0.1
 
-[mysqldump]
-quick
-quote-names
-max_allowed_packet	= 16M
-
-[mysql]
-#no-auto-rehash	# faster start of mysql but no tab completition
- 
 #
 # * Fine Tuning
 #
@@ -64,8 +56,15 @@ log_error               = ${buildout:directory}/logs/mysql-error.log
 # ssl-ca=/etc/mysql/cacert.pem
 # ssl-cert=/etc/mysql/server-cert.pem
 # ssl-key=/etc/mysql/server-key.pem
+ 
+[mysqldump]
+quick
+quote-names
+max_allowed_packet	= 16M
 
-
+[mysql]
+#no-auto-rehash	# faster start of mysql but no tab completition
+ 
 [isamchk]
 #key_buffer		= 16M
 #
