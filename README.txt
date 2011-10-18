@@ -36,11 +36,10 @@
 # Update
 # -------------
 #
-# To change the configuration edit the options on top of the main buildout file (buildout-development) and the config template files (./templates).
+# To change the configuration edit the main buildout file (buildout-development) and the config template files (./templates).
 # Then rerun the buildout:
 #    $ bin/buildout -Nc buildout-develpment.cfg 
-# You can change the config files directly (see part generated-config-files), but all changes are lost 
-# if you run buildout again. 
+# You could change the generated config files directly, but all changes are lost if you run buildout again. 
 #                          
 # Generated config files
 # ----------------------
@@ -49,6 +48,7 @@
 # etc/php.ini
 # parts/supervisor/supervisor.conf
 # parts/logrotate.conf
+# htdocs/wp-conifg.php
  
  
 
