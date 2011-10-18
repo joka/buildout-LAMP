@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-See buildout-common.cfg.
-=======
 # LAMP FCGI and wordpress configuration buildout
 # ===============================================
 # 
@@ -53,6 +50,3 @@ See buildout-common.cfg.
 # parts/logrotate.conf
 # htdocs/wp-conifg.php
  
- 
-
->>>>>>> 7b037910703837c054e39631c68cebf6e7b87599
