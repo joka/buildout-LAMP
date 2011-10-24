@@ -50,5 +50,3 @@
 # parts/logrotate.conf
 # htdocs/wp-conifg.php
  
- 
-
